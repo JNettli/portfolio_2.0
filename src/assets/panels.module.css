@@ -1,0 +1,207 @@
+.panel {
+    padding: 1.5rem;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── About ── */
+.aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .aboutGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infoBlock {
+    border: 1px solid var(--border);
+    padding: 0.9rem 1rem;
+    background: rgba(0, 255, 136, 0.02);
+}
+
+.infoLabel {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.35rem;
+}
+
+.infoValue {
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.infoValue.highlight {
+    color: var(--green);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.statusDot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    margin-right: 6px;
+    vertical-align: middle;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.bio {
+    font-size: 0.85rem;
+    line-height: 1.85;
+    color: var(--text-dim);
+    margin-top: 1.1rem;
+    border-left: 2px solid var(--green);
+    padding-left: 1rem;
+}
+
+/* ── Skills ── */
+.skillRow {
+    margin-bottom: 1rem;
+}
+
+.skillRow:last-child {
+    margin-bottom: 0;
+}
+
+.skillHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 0.35rem;
+}
+
+.skillBar {
+    height: 4px;
+    background: var(--border);
+    overflow: hidden;
+}
+
+.skillFill {
+    height: 100%;
+    width: 0;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    transition: width 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Projects ── */
+.projectCard {
+    display: block;
+    border: 1px solid var(--border);
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+    background: rgba(0, 255, 136, 0.01);
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+    cursor: pointer;
+}
+
+.projectCard:last-child {
+    margin-bottom: 0;
+}
+
+.projectCard:hover {
+    border-color: var(--green-dim);
+    background: rgba(0, 255, 136, 0.04);
+}
+
+.projectCard:hover .projectArrow {
+    transform: translateX(4px);
+    color: var(--green);
+}
+
+.projectArrow {
+    float: right;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    transition:
+        transform 0.2s,
+        color 0.2s;
+}
+
+.projectTitle {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--green);
+    letter-spacing: 1px;
+}
+
+.projectStack {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    margin: 0.3rem 0;
+}
+
+.projectDesc {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+}
+
+/* ── Contact ── */
+.contactRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.2s;
+    font-size: 0.85rem;
+}
+
+.contactRow:last-child {
+    border-bottom: none;
+}
+.contactRow:hover {
+    color: var(--green);
+}
+
+.contactLabel {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    width: 72px;
+    flex-shrink: 0;
+    color: inherit;
+}
+
+.contactVal {
+    flex: 1;
+}
+.contactArrow {
+    color: var(--green-dim);
+}
