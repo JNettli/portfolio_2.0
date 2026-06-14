@@ -37,9 +37,13 @@ export function AboutPanel() {
                 ))}
             </div>
             <p className={styles.bio}>
-                I build fast, accessible, and memorable web experiences. 5 years
-                shipping production React apps — I care deeply about animation,
-                performance, and the details most developers skip.
+                I'm a frontend developer with a professional degree from Noroff,
+                now with 2+ years of experience building production React
+                applications. I focus on creating user experiences that are
+                fast, accessible, and delightful. I'm passionate about clean
+                code, thoughtful UX, performance optimization, and the small
+                details that make the difference between good and great
+                products.
             </p>
         </div>
     );
@@ -49,9 +53,12 @@ const SKILLS = [
     { name: "React / Next.js", pct: 95 },
     { name: "TypeScript", pct: 90 },
     { name: "CSS / Animation", pct: 92 },
+    { name: "Vite / Build Tools", pct: 85 },
+    { name: "Web Audio API", pct: 82 },
     { name: "Node.js", pct: 78 },
     { name: "WebGL / Three.js", pct: 65 },
-    { name: "Accessibility", pct: 88 },
+    { name: "Accessibility (A11y)", pct: 88 },
+    { name: "Performance Optimization", pct: 87 },
     { name: "Coolness Factor", pct: 100 },
 ];
 
@@ -163,7 +170,7 @@ const CONTACTS = [
         label: "email",
         value: "jonas.nettli@gmail.com",
         arrow: "↗",
-        href: "jonas.nettli@gmail.com",
+        href: "mailto:jonas.nettli@gmail.com",
     },
     {
         label: "github",
