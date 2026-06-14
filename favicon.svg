@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Jonas Nettli favicon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#04220f"/>
+      <stop offset="100%" stop-color="#05140a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- rounded square background -->
+  <rect x="2" y="2" width="60" height="60" rx="10" ry="10" fill="url(#g)" stroke="#0bff86" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <!-- subtle inner panel -->
+  <rect x="8" y="10" width="48" height="44" rx="6" ry="6" fill="#07130b" opacity="0.9"/>
+
+  <!-- neon initials -->
+  <g transform="translate(32,34)" text-anchor="middle" filter="url(#glow)">
+    <text x="0" y="0" font-family="monospace, 'VT323', sans-serif" font-weight="700" font-size="22" fill="#8affc2">JN</text>
+  </g>
+
+  <!-- tiny accent -->
+  <circle cx="50" cy="14" r="2" fill="#0bff86" opacity="0.9" />
+</svg>

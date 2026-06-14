@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { playHoverSound } from "../utils/soundEffects";
 import styles from "./Panels.module.css";
 
 export function AboutPanel() {
@@ -92,22 +93,46 @@ export function SkillsPanel({ active }) {
 
 const PROJECTS = [
     {
-        title: "E-Commerce Platform",
-        stack: "React · TypeScript · Stripe · Node.js",
-        desc: "Full-stack storefront with real-time inventory, custom checkout, and a 98 Lighthouse score.",
-        href: "#",
+        title: "Espen Rognlien og Strengelauget",
+        stack: "React · JavaScript · Node.js",
+        desc: "Band website for Espen Rognlien og Strengelauget. Norwegian Americana & Country-folk style with a hint of Johnny Cash.",
+        href: "https://strengelauget.netlify.app/",
     },
     {
-        title: "Data Viz Tool",
-        stack: "D3.js · Canvas API · WebWorkers",
-        desc: "Interactive analytics dashboard rendering 1M+ data points at 60fps via offscreen canvas.",
-        href: "#",
+        title: "fuglehjelpen.no",
+        stack: "React · JavaScript · Node.js",
+        desc: "fuglehjelpen.no is the website of Fuglehjelpen, a Norwegian non-profit that helps injured and sick birds. ",
+        href: "https://fuglehjelpen.no/",
     },
     {
-        title: "Design System",
-        stack: "Storybook · Radix UI · CSS Variables",
-        desc: "Component library used across 4 products. Zero-dependency, fully accessible, dark-mode first.",
-        href: "#",
+        title: "Double-click deposit worn items",
+        stack: "Java",
+        desc: "Double-Click Deposit Worn Items is a RuneLite plugin designed to prevent accidental depositing of worn equipment when using the bank interface.",
+        href: "https://runelite.net/plugin-hub/show/double-click-deposit-worn-items",
+    },
+    {
+        title: "Platfolio",
+        stack: "Three.JS · JavaScript",
+        desc: "3D portfolio test. First time using Three.js to create a fully 3D environment that could be explored to find my other projects.",
+        href: "https://jnet-platfolio.netlify.app/",
+    },
+    {
+        title: "Holidaze - Venue booking website",
+        stack: "React · TailwindCSS · JavaScript",
+        desc: "Holidaze, exam project booking website. User authentication, venue creation and management, personal profile and interactive booking calendars.",
+        href: "https://jnet-holidaze.netlify.app/",
+    },
+    {
+        title: "Anemic Heroes",
+        stack: "React · TailwindCSS · JavaScript · Home-made API",
+        desc: "Anemic Heroes is a group project test to see how well we could work together as a team. Creativity with difficult problemsolving and a (way too) hard game.",
+        href: "https://anemic-heroes.netlify.app/",
+    },
+    {
+        title: "Zork Remake",
+        stack: "JavaScript · Solo project",
+        desc: "A remake of the classic game Zork. Text commands to explore the environment in a text based game. First solo project as I was learning JavaScript",
+        href: "https://jnettli-zork-remake.netlify.app/",
     },
 ];
 
@@ -115,7 +140,14 @@ export function ProjectsPanel() {
     return (
         <div className={styles.panel}>
             {PROJECTS.map(({ title, stack, desc, href }) => (
-                <a key={title} className={styles.projectCard} href={href}>
+                <a
+                    key={title}
+                    className={styles.projectCard}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    onMouseEnter={playHoverSound}
+                >
                     <span className={styles.projectArrow}>→</span>
                     <div className={styles.projectTitle}>{title}</div>
                     <div className={styles.projectStack}>{stack}</div>
@@ -158,6 +190,7 @@ export function ContactPanel() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
                 >
                     <span className={styles.contactLabel}>{label}</span>
                     <span className={styles.contactVal}>{value}</span>
