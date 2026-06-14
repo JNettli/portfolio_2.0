@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { playHoverSound } from "../utils/soundEffects";
-import styles from "./Panels.module.css";
+import styles from "./panels.module.css";
 
 export function AboutPanel() {
     return (
