@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { playHoverSound } from "../utils/soundEffects";
+import { playHoverSound, playPrimaryClick } from "../utils/soundEffects";
 import styles from "./panels.module.css";
 
 export function AboutPanel() {
@@ -100,42 +100,49 @@ export function SkillsPanel({ active }) {
 
 const PROJECTS = [
     {
+        id: "strengelauget",
         title: "Espen Rognlien og Strengelauget",
         stack: "React · JavaScript · Node.js",
         desc: "Band website for Espen Rognlien og Strengelauget. Norwegian Americana & Country-folk style with a hint of Johnny Cash.",
         href: "https://strengelauget.netlify.app/",
     },
     {
+        id: "fuglehjelpen",
         title: "fuglehjelpen.no",
         stack: "React · JavaScript · Node.js",
         desc: "fuglehjelpen.no is the website of Fuglehjelpen, a Norwegian non-profit that helps injured and sick birds. ",
         href: "https://fuglehjelpen.no/",
     },
     {
+        id: "runeliteplugin",
         title: "Double-click deposit worn items",
         stack: "Java",
         desc: "Double-Click Deposit Worn Items is a RuneLite plugin designed to prevent accidental depositing of worn equipment when using the bank interface.",
         href: "https://runelite.net/plugin-hub/show/double-click-deposit-worn-items",
     },
     {
+        id: "platfolio",
         title: "Platfolio",
         stack: "Three.JS · JavaScript",
         desc: "3D portfolio test. First time using Three.js to create a fully 3D environment that could be explored to find my other projects.",
         href: "https://jnet-platfolio.netlify.app/",
     },
     {
+        id: "holidaze",
         title: "Holidaze - Venue booking website",
         stack: "React · TailwindCSS · JavaScript",
         desc: "Holidaze, exam project booking website. User authentication, venue creation and management, personal profile and interactive booking calendars.",
         href: "https://jnet-holidaze.netlify.app/",
     },
     {
+        id: "anemicheroes",
         title: "Anemic Heroes",
         stack: "React · TailwindCSS · JavaScript · Home-made API",
         desc: "Anemic Heroes is a group project test to see how well we could work together as a team. Creativity with difficult problemsolving and a (way too) hard game.",
         href: "https://anemic-heroes.netlify.app/",
     },
     {
+        id: "zork",
         title: "Zork Remake",
         stack: "JavaScript · Solo project",
         desc: "A remake of the classic game Zork. Text commands to explore the environment in a text based game. First solo project as I was learning JavaScript",
@@ -143,24 +150,56 @@ const PROJECTS = [
     },
 ];
 
-export function ProjectsPanel() {
+export function ProjectsPanel({ onOpenProject }) {
     return (
         <div className={styles.panel}>
-            {PROJECTS.map(({ title, stack, desc, href }) => (
+            {PROJECTS.map((project) => (
                 <a
-                    key={title}
+                    key={project.id}
                     className={styles.projectCard}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     onMouseEnter={playHoverSound}
+                    onClick={() => {
+                        playPrimaryClick();
+                        onOpenProject(project);
+                    }}
                 >
                     <span className={styles.projectArrow}>→</span>
-                    <div className={styles.projectTitle}>{title}</div>
-                    <div className={styles.projectStack}>{stack}</div>
-                    <div className={styles.projectDesc}>{desc}</div>
+                    <div className={styles.projectTitle}>{project.title}</div>
+                    <div className={styles.projectStack}>{project.stack}</div>
+                    <div className={styles.projectDesc}>{project.desc}</div>
                 </a>
             ))}
+        </div>
+    );
+}
+
+export function ProjectDetail({ project }) {
+    const details = project?.details ?? [];
+    const body = project?.body ?? project?.desc ?? "";
+
+    return (
+        <div className={styles.panel}>
+            {details.length > 0 && (
+                <div className={styles.detailMeta}>
+                    {details.map(({ label, value }) => (
+                        <div key={label} className={styles.detailRow}>
+                            <span className={styles.detailLabel}>{label}</span>
+                            <span className={styles.detailValue}>{value}</span>
+                        </div>
+                    ))}
+                </div>
+            )}
+            <p className={styles.detailBody}>{body}</p>
+            {project?.href && (
+                <a
+                    className={styles.detailLink}
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    view project →
+                </a>
+            )}
         </div>
     );
 }

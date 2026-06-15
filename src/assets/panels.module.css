@@ -14,7 +14,6 @@
     }
 }
 
-/* ── About ── */
 .aboutGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -113,7 +112,6 @@
     transition: width 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Projects ── */
 .projectCard {
     display: block;
     border: 1px solid var(--border);
@@ -170,7 +168,6 @@
     line-height: 1.7;
 }
 
-/* ── Contact ── */
 .contactRow {
     display: flex;
     align-items: center;

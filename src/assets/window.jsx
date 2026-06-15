@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { AboutPanel, SkillsPanel, ProjectsPanel, ContactPanel } from "./panels";
 import {
     playHoverSound,
-    playClickSound,
+    playSecondaryClick,
     setVolume,
 } from "../utils/soundEffects";
 import styles from "./window.module.css";
@@ -14,7 +14,7 @@ const TABS = [
     { id: "contact", label: "contact.md" },
 ];
 
-export default function Window({ visible }) {
+export default function Window({ visible, onOpenProject }) {
     const [phase, setPhase] = useState("idle");
     const [activeTab, setActiveTab] = useState("about");
 
@@ -40,7 +40,7 @@ export default function Window({ visible }) {
     };
 
     const handleToggleMute = useCallback(() => {
-        playClickSound();
+        playSecondaryClick();
         if (!muted) {
             prevVolumeRef.current =
                 volume > 0 ? volume : prevVolumeRef.current || 1;
@@ -117,7 +117,7 @@ export default function Window({ visible }) {
                                 className={`${styles.tab} ${activeTab === id ? styles.activeTab : ""}`}
                                 onMouseEnter={playHoverSound}
                                 onClick={() => {
-                                    playClickSound();
+                                    playSecondaryClick();
                                     setActiveTab(id);
                                 }}
                             >
@@ -131,7 +131,9 @@ export default function Window({ visible }) {
                         {activeTab === "skills" && (
                             <SkillsPanel active={activeTab === "skills"} />
                         )}
-                        {activeTab === "projects" && <ProjectsPanel />}
+                        {activeTab === "projects" && (
+                            <ProjectsPanel onOpenProject={onOpenProject} />
+                        )}
                         {activeTab === "contact" && <ContactPanel />}
                     </div>
 
@@ -216,7 +218,7 @@ export default function Window({ visible }) {
                                     aria-label="Volume"
                                 />
                             </label>
-                            <span>v1.0.0</span>
+                            <span>v1.2.1</span>
                         </div>
                     </div>
                 </div>

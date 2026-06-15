@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTypewriter } from "./typewriter";
-import { playHoverSound, playClickSound } from "../utils/soundEffects";
+import { playHoverSound, playPrimaryClick } from "../utils/soundEffects";
 import styles from "./bootscreen.module.css";
 
 export default function BootScreen({ onOpen }) {
@@ -22,7 +22,7 @@ export default function BootScreen({ onOpen }) {
                 className={`${styles.openBtn} ${done ? styles.visible : ""}`}
                 onMouseEnter={playHoverSound}
                 onClick={() => {
-                    playClickSound();
+                    playPrimaryClick();
                     handleOpen();
                 }}
                 aria-label="Open portfolio"
