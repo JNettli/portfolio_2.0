@@ -18,7 +18,7 @@ export function AboutPanel() {
                     { label: "name", value: "Jonas Nettli", highlight: true },
                     {
                         label: "location",
-                        value: "Oslo, Norway",
+                        value: "Heggedal, Norway",
                         highlight: false,
                     },
                     {
