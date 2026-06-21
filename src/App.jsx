@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import BootScreen from "./assets/bootscreen";
 import Window from "./assets/window";
-import SubWindow from "./assets/subwindow";
+import SubWindow from "./assets/SubWindow";
 import { ProjectDetail } from "./assets/panels";
 import { useWindowManager } from "./useWindowManager";
 import "./index.css";
