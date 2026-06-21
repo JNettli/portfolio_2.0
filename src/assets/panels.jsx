@@ -47,9 +47,11 @@ export function AboutPanel() {
             <p className={styles.bio}>
                 Hey, I'm Jonas. I'm a frontend developer with a Higher
                 Professional Degree from Noroff, where I learned HTML, CSS,
-                JavaScript, React, and Tailwind. I like solving problems
-                creatively, especially when the obvious tools don't quite do
-                what I need them to.
+                JavaScript, React, and Tailwind. While there, my team won
+                "Golden Egg", Noroff's national award for best student project
+                on a national level. I like solving problems creatively,
+                especially when the obvious tools don't quite do what I need
+                them to.
                 <br />
                 <br />
                 Before coding, I spent a few years leading security teams and
