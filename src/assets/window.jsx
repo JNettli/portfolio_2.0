@@ -218,7 +218,7 @@ export default function Window({ visible, onOpenProject }) {
                                     aria-label="Volume"
                                 />
                             </label>
-                            <span>v1.2.1</span>
+                            <span>v1.2.12</span>
                         </div>
                     </div>
                 </div>

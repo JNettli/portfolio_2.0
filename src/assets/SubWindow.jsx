@@ -2,8 +2,6 @@ import { useRef, useEffect, useState } from "react";
 import { playCloseSound, playHoverSound } from "../utils/soundEffects";
 import styles from "./SubWindow.module.css";
 
-import previewImage from "../../favicon.png";
-
 export default function SubWindow({
     id,
     title,
@@ -11,7 +9,6 @@ export default function SubWindow({
     x,
     y,
     zIndex,
-    image,
     onClose,
     onFocus,
     onMove,
@@ -31,8 +28,6 @@ export default function SubWindow({
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    const previewSrc = image || previewImage;
 
     const handleClose = () => {
         playCloseSound();
@@ -142,14 +137,6 @@ export default function SubWindow({
                         title="Close"
                     />
                 </div>
-            </div>
-
-            <div className={styles.imageWrapper}>
-                <img
-                    src={previewSrc}
-                    className={styles.windowImage}
-                    alt="window preview"
-                />
             </div>
 
             <div className={styles.body}>{children}</div>

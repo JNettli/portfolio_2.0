@@ -189,6 +189,42 @@
     min-width: 0;
 }
 
+.detailLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin-top: 8px;
+    transition:
+        color 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+    background: rgba(0, 255, 136, 0.01);
+}
+
+.detailLink:hover {
+    color: var(--green);
+    border-color: var(--green-dim);
+    background: rgba(0, 255, 136, 0.04);
+}
+
+.detailLinkArrow {
+    color: var(--green-dim);
+    transition:
+        transform 0.2s,
+        color 0.2s;
+}
+
+.detailLink:hover .detailLinkArrow {
+    transform: translateX(4px);
+    color: var(--green);
+}
+
 .contactRow {
     display: flex;
     align-items: center;

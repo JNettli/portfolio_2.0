@@ -112,6 +112,7 @@ const PROJECTS = [
         title: "Espen Rognlien og Strengelauget",
         stack: "React · JavaScript · Node.js",
         desc: "Band website for Espen Rognlien og Strengelauget. Norwegian Americana & Country-folk style with a hint of Johnny Cash.",
+        body: "A custom-built site for a Norwegian Americana/country-folk act, designed to feel as warm and analog as the music itself. Built with React on the frontend and a small Node.js backend for handling show listings and contact requests. Focused on fast load times and a clean, music-forward layout that puts tour dates and embedded tracks front and center.",
         href: "https://strengelauget.netlify.app/",
         image: strengelaugetImage,
     },
@@ -120,6 +121,7 @@ const PROJECTS = [
         title: "fuglehjelpen.no",
         stack: "React · JavaScript · Node.js",
         desc: "fuglehjelpen.no is the website of Fuglehjelpen, a Norwegian non-profit that helps injured and sick birds.",
+        body: "The official website for Fuglehjelpen, a Norwegian non-profit dedicated to rescuing and rehabilitating injured or sick birds. Built to be approachable for non-technical volunteers to update, with clear calls to action for reporting an injured bird and donating. Performance and accessibility were priorities given the broad, non-technical audience the site serves.",
         href: "https://fuglehjelpen.no/",
         image: fuglehjelpenImage,
     },
@@ -128,6 +130,7 @@ const PROJECTS = [
         title: "Double-click deposit worn items",
         stack: "Java",
         desc: "Double-Click Deposit Worn Items is a RuneLite plugin designed to prevent accidental depositing of worn equipment when using the bank interface.",
+        body: "A small but widely-used RuneLite plugin written in Java, published on the official Plugin Hub. Solves a real, recurring annoyance for players: accidentally depositing equipped items while banking. Required digging into RuneLite's plugin API and event hooks to intercept the right interface actions cleanly without interfering with normal banking behavior.",
         href: "https://runelite.net/plugin-hub/show/double-click-deposit-worn-items",
         image: runeliteImage,
     },
@@ -136,6 +139,7 @@ const PROJECTS = [
         title: "Platfolio",
         stack: "Three.JS · JavaScript",
         desc: "3D portfolio test. First time using Three.js to create a fully 3D environment that could be explored to find my other projects.",
+        body: "An experimental 3D portfolio built to learn Three.js from the ground up. Visitors navigate a fully explorable 3D environment where other projects are represented as physical objects in the scene. Tackled camera controls, lighting, and performance optimization for web-based WebGL for the first time — a useful proof of concept for combining 3D web experiences with practical portfolio content.",
         href: "https://jnet-platfolio.netlify.app/",
         image: platfolioImage,
     },
@@ -144,6 +148,7 @@ const PROJECTS = [
         title: "Holidaze - Venue booking website",
         stack: "React · TailwindCSS · JavaScript",
         desc: "Holidaze, exam project booking website. User authentication, venue creation and management, personal profile and interactive booking calendars.",
+        body: "An exam project simulating a real-world venue booking platform. Implements full user authentication, venue creation and management for hosts, personal profile pages, and an interactive booking calendar with date-range selection. Built with React and TailwindCSS, with a strong focus on handling realistic edge cases like booking conflicts and role-based permissions between regular users and venue managers.",
         href: "https://jnet-holidaze.netlify.app/",
         image: holidazeImage,
     },
@@ -152,6 +157,7 @@ const PROJECTS = [
         title: "Anemic Heroes",
         stack: "React · TailwindCSS · JavaScript · Home-made API",
         desc: "Anemic Heroes is a group project test to see how well we could work together as a team. Creativity with difficult problemsolving and a (way too) hard game.",
+        body: "A group project built to test collaborative workflow as much as the game itself. Paired a React/Tailwind frontend with a home-made API to handle game state and logic. The brief leaned into difficulty and creative problem-solving over polish — the result is a notoriously hard but mechanically interesting game, and a good case study in working as a team under a tight deadline.",
         href: "https://anemic-heroes.netlify.app/",
         image: anemicHeroesImage,
     },
@@ -160,6 +166,7 @@ const PROJECTS = [
         title: "Zork Remake",
         stack: "JavaScript · Solo project",
         desc: "A remake of the classic game Zork. Text commands to explore the environment in a text based game. First solo project as I was learning JavaScript",
+        body: "A from-scratch remake of the classic text adventure Zork, built solo while first learning JavaScript. Players type commands to explore rooms, interact with objects, and solve simple puzzles, parsed through a custom-built text command interpreter. As an early solo project, it was as much about learning core JavaScript fundamentals — state management, parsing, control flow — as it was about the game itself.",
         href: "https://jnettli-zork-remake.netlify.app/",
         image: zorkImage,
     },
@@ -220,8 +227,10 @@ export function ProjectDetail({ project }) {
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
                 >
-                    view project →
+                    <span>View Project</span>
+                    <span className={styles.detailLinkArrow}>↗</span>
                 </a>
             )}
         </div>
