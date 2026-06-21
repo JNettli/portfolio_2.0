@@ -10,32 +10,28 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* Entry / exit */
     transform-origin: center top;
     transition:
         opacity 0.25s ease,
         transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    min-width: 0;
 }
 
-/* Entry — start invisible + slightly scaled down */
 .subWindow.opening {
     opacity: 0;
     transform: scaleY(0.88) translateY(-6px);
 }
 
-/* Fully open */
 .subWindow.open {
     opacity: 1;
     transform: scaleY(1) translateY(0);
 }
 
-/* Exit */
 .subWindow.closing {
     opacity: 0;
     transform: scaleY(0.88) translateY(-6px);
 }
 
-/* ── Titlebar ── */
 .titlebar {
     display: flex;
     align-items: center;
@@ -152,10 +148,29 @@
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
-/* ── Body ── */
+.imageWrapper {
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent);
+    min-width: 0;
+}
+
+.windowImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    opacity: 0.95;
+    min-width: 0;
+}
+
 .body {
     overflow-y: auto;
     max-height: 55vh;
+    min-height: 120px;
+    padding: 1rem;
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
 }
@@ -171,7 +186,23 @@
     border-radius: 2px;
 }
 
-/* ── Statusbar ── */
+.subWindow.mobile {
+    width: min(92vw, 420px);
+    max-width: 420px;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 auto;
+}
+
+.subWindow.mobile .titlebar {
+    padding: 0.55rem 0.8rem;
+}
+
+.subWindow.mobile .body {
+    max-height: 60vh;
+}
+
 .statusbar {
     border-top: 1px solid var(--border);
     padding: 0.3rem 1rem;

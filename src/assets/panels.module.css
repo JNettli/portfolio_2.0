@@ -81,7 +81,6 @@
     padding-left: 1rem;
 }
 
-/* ── Skills ── */
 .skillRow {
     margin-bottom: 1rem;
 }
@@ -166,6 +165,28 @@
     font-size: 0.82rem;
     color: var(--text-dim);
     line-height: 1.7;
+}
+
+.detailImageWrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent);
+}
+
+.detailImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .contactRow {

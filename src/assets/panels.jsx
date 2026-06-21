@@ -2,6 +2,14 @@ import { useEffect, useRef } from "react";
 import { playHoverSound, playPrimaryClick } from "../utils/soundEffects";
 import styles from "./panels.module.css";
 
+import platfolioImage from "../img/platfolio.png";
+import anemicHeroesImage from "../img/anemicheroes.png";
+import fuglehjelpenImage from "../img/fuglehjelpenlogo.svg";
+import holidazeImage from "../img/holidaze.png";
+import runeliteImage from "../img/runelitelogo.webp";
+import zorkImage from "../img/zork.png";
+import strengelaugetImage from "../img/strengelauget.webp";
+
 export function AboutPanel() {
     return (
         <div className={styles.panel}>
@@ -57,7 +65,7 @@ const SKILLS = [
     { name: "Web Audio API", pct: 82 },
     { name: "Node.js", pct: 78 },
     { name: "WebGL / Three.js", pct: 65 },
-    { name: "Accessibility (A11y)", pct: 88 },
+    { name: "Accessibility", pct: 88 },
     { name: "Performance Optimization", pct: 87 },
     { name: "Coolness Factor", pct: 100 },
 ];
@@ -105,13 +113,15 @@ const PROJECTS = [
         stack: "React · JavaScript · Node.js",
         desc: "Band website for Espen Rognlien og Strengelauget. Norwegian Americana & Country-folk style with a hint of Johnny Cash.",
         href: "https://strengelauget.netlify.app/",
+        image: strengelaugetImage,
     },
     {
         id: "fuglehjelpen",
         title: "fuglehjelpen.no",
         stack: "React · JavaScript · Node.js",
-        desc: "fuglehjelpen.no is the website of Fuglehjelpen, a Norwegian non-profit that helps injured and sick birds. ",
+        desc: "fuglehjelpen.no is the website of Fuglehjelpen, a Norwegian non-profit that helps injured and sick birds.",
         href: "https://fuglehjelpen.no/",
+        image: fuglehjelpenImage,
     },
     {
         id: "runeliteplugin",
@@ -119,6 +129,7 @@ const PROJECTS = [
         stack: "Java",
         desc: "Double-Click Deposit Worn Items is a RuneLite plugin designed to prevent accidental depositing of worn equipment when using the bank interface.",
         href: "https://runelite.net/plugin-hub/show/double-click-deposit-worn-items",
+        image: runeliteImage,
     },
     {
         id: "platfolio",
@@ -126,6 +137,7 @@ const PROJECTS = [
         stack: "Three.JS · JavaScript",
         desc: "3D portfolio test. First time using Three.js to create a fully 3D environment that could be explored to find my other projects.",
         href: "https://jnet-platfolio.netlify.app/",
+        image: platfolioImage,
     },
     {
         id: "holidaze",
@@ -133,6 +145,7 @@ const PROJECTS = [
         stack: "React · TailwindCSS · JavaScript",
         desc: "Holidaze, exam project booking website. User authentication, venue creation and management, personal profile and interactive booking calendars.",
         href: "https://jnet-holidaze.netlify.app/",
+        image: holidazeImage,
     },
     {
         id: "anemicheroes",
@@ -140,6 +153,7 @@ const PROJECTS = [
         stack: "React · TailwindCSS · JavaScript · Home-made API",
         desc: "Anemic Heroes is a group project test to see how well we could work together as a team. Creativity with difficult problemsolving and a (way too) hard game.",
         href: "https://anemic-heroes.netlify.app/",
+        image: anemicHeroesImage,
     },
     {
         id: "zork",
@@ -147,6 +161,7 @@ const PROJECTS = [
         stack: "JavaScript · Solo project",
         desc: "A remake of the classic game Zork. Text commands to explore the environment in a text based game. First solo project as I was learning JavaScript",
         href: "https://jnettli-zork-remake.netlify.app/",
+        image: zorkImage,
     },
 ];
 
@@ -179,6 +194,15 @@ export function ProjectDetail({ project }) {
 
     return (
         <div className={styles.panel}>
+            {project?.image && (
+                <div className={styles.detailImageWrapper}>
+                    <img
+                        className={styles.detailImage}
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                    />
+                </div>
+            )}
             {details.length > 0 && (
                 <div className={styles.detailMeta}>
                     {details.map(({ label, value }) => (
@@ -223,7 +247,12 @@ const CONTACTS = [
         arrow: "↗",
         href: "https://www.linkedin.com/in/jonas-nettli/",
     },
-    { label: "cv", value: "download resume.pdf", arrow: "↓", href: "#" },
+    {
+        label: "cv",
+        value: "download resume.pdf",
+        arrow: "↓",
+        href: "https://drive.google.com/file/d/1PkNQ8ZaP5UDIkqu7HMmTVdhPBlgESDh-/view",
+    },
 ];
 
 export function ContactPanel() {
