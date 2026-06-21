@@ -45,29 +45,32 @@ export function AboutPanel() {
                 ))}
             </div>
             <p className={styles.bio}>
-                I'm a frontend developer with a professional degree from Noroff,
-                now with 2+ years of experience building production React
-                applications. I focus on creating user experiences that are
-                fast, accessible, and delightful. I'm passionate about clean
-                code, thoughtful UX, performance optimization, and the small
-                details that make the difference between good and great
-                products.
+                Hey, I'm Jonas. I'm a frontend developer with a Higher
+                Professional Degree from Noroff, where I learned HTML, CSS,
+                JavaScript, React, and Tailwind. I like solving problems
+                creatively, especially when the obvious tools don't quite do
+                what I need them to.
+                <br />
+                <br />
+                Before coding, I spent a few years leading security teams and
+                serving in the Norwegian Air Force. These days I'm working on
+                moving toward a fullstack role, one step at a time.
             </p>
         </div>
     );
 }
 
 const SKILLS = [
-    { name: "React / Next.js", pct: 95 },
-    { name: "TypeScript", pct: 90 },
-    { name: "CSS / Animation", pct: 92 },
-    { name: "Vite / Build Tools", pct: 85 },
-    { name: "Web Audio API", pct: 82 },
-    { name: "Node.js", pct: 78 },
-    { name: "WebGL / Three.js", pct: 65 },
-    { name: "Accessibility", pct: 88 },
-    { name: "Performance Optimization", pct: 87 },
-    { name: "Coolness Factor", pct: 100 },
+    { name: "React", pct: 95 },
+    { name: "TypeScript", pct: 88 },
+    { name: "JavaScript", pct: 95 },
+    { name: "CSS / Tailwind", pct: 92 },
+    { name: "Three.js / WebGL", pct: 65 },
+    { name: "API Integration", pct: 90 },
+    { name: "State Management (Zustand)", pct: 80 },
+    { name: "Java", pct: 70 },
+    { name: "Accessibility", pct: 80 },
+    { name: "Figma to Code", pct: 88 },
 ];
 
 export function SkillsPanel({ active }) {
